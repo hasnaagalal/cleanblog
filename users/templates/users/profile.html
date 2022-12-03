@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url({% static 'assets/img/home-bg.jpg' %})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <div class="site-heading">
+                    
+                    <!--    <link rel="stylesheet" href="main.css">-->
+
+                    <!-- Add icon library -->
+                    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <div >
+                        <!-- <img src="img.jpg" alt="John" style="width:100%"> -->
+                        <div>
+                             <img class="rounded-circle " style=" width:40% " id="article-img " src="{{ user.profile.image.url }}" alt="User-Profile-Image"> 
+                        </div>
+                        <br>
+                        <h3>{{user.username|title}}</h3>
+                        <p>{{user.email|title}}</p>
+                        <!-- <p>My Social Live  Below</p> -->
+                        <a href="#" ><i class="fa fa-dribbble"></i></a>
+                        <a href="#" ><i class="fa fa-twitter"></i></a>
+                        <a href="#" ><i class="fa fa-linkedin"></i></a>
+                        <a href="#" ><i class="fa fa-facebook"></i></a>
+
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <!--                <legend class="border-bottom mb-4">Join Today</legend>-->
+                                {{ u_form|crispy }}
+                                {{ p_form|crispy }}
+                            </fieldset>
+                        </form>
+                        <br>
+                        <button class="btn btn-success"><a href="{% url 'profile-update' %}" > Update Profile </a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock body %}

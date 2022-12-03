@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+<header class="masthead" style="background-image: url({% static 'assets/img/about-bg.jpg' %})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Sign up</h1>
+                    <section class='container h-100'>
+                        <div class="content-section">
+                           <form action="" method="post">
+                               {% csrf_token %}
+                               <fieldset class=" form-group " >
+                                   <legend claass="border-bottom mb-4"></legend>
+                                   {{ u_form|crispy }}
+                                   {{ p_form|crispy }}
+                               </fieldset>
+                               <br>
+                               <div class="form-group ">
+                                   <button class="btn btn-success" type="submit" >Update</button>
+                                   <button class="btn btn-success" type="submit" ><a href='{% url 'profile' %}'>Go Back</a></button>
+                                </div>
+                           </form>
+                           
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock body %}
