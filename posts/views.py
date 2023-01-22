@@ -27,7 +27,7 @@ class PostListView(LoginRequiredMixin, ListView):
     
 class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
-    paginate_by=3
+    paginate_by=10
     template_name = 'posts/post.html'
     
     

@@ -28,6 +28,7 @@ urlpatterns = [
     
     # user authentications
     path('register/', user_views.register, name="register"),
+    path('register/posts/home', user_views.profile, name="profile"),
     path('profile/', user_views.profile, name="profile"),
     path('profile/profile_update/', user_views.profile_update, name="profile-update"),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="login"),
